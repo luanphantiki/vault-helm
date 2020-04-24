@@ -20,6 +20,7 @@ webhooks:
         apiGroups: [""]
         apiVersions: ["v1"]
         resources: ["pods"]
+    failurePolicy: {{ .Values.injector.failurePolicy | default "Ignore" }}
 {{- if .Values.injector.namespaceSelector }}
     namespaceSelector:
 {{ toYaml .Values.injector.namespaceSelector | indent 6}}
